@@ -85,8 +85,14 @@ func readFromBlock(name string) string {
 }
 
 func readFromWp(name string) string {
+
 	f, e := os.Open(filepath.Join(workSrc, name))
 	defer f.Close()
+	if dataSuffix.MatchString(name) && os.IsNotExist(e) {
+		f.Close()
+		name = dataSuffix.ReplaceAllString(name, ".default.txt")
+		f, e = os.Open(filepath.Join(workSrc, name))
+	}
 	if e != nil {
 		gklang.Er(e)
 	}
@@ -94,7 +100,10 @@ func readFromWp(name string) string {
 	if e != nil {
 		gklang.Er(e)
 	}
-	// TODO: see suffix & loadTemplate
+
+	if dataSuffix.MatchString(name) {
+		return string(b)
+	}
 
 	if jsSuffix.MatchString(name) {
 		return fmt.Sprintf("<script>%s</script>", string(b))
@@ -102,10 +111,6 @@ func readFromWp(name string) string {
 
 	if cssSuffix.MatchString(name) {
 		return fmt.Sprintf("<style>%s</style>", string(b))
-	}
-
-	if dataSuffix.MatchString(name) {
-		return string(b)
 	}
 
 	if htmlSuffix.MatchString(name) {
