@@ -2,13 +2,17 @@
 build:
 	go build -o ./build/pdf-designer
 
+.PHONY: save-buildin
+save-buildin:
+	go run . save -s ./assets/template/origin -p ./local -t origin
+
 .PHONY: save
 save:
-	go run . save -s ./assets/template/origin -p ./local -t origin
+	go run . save -s ./wp -p ./local -t origin-wp
 
 .PHONY: init
 init:
-	go run . init -s ./wp -t ./local/origin.pdt
+	go run . init -s ./wp -t ./local/origin-wp.pdt
 
 .PHONY: init-buildin
 init-buildin:

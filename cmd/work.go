@@ -13,8 +13,10 @@ import (
 	"strings"
 
 	"github.com/ddosakura/gklang"
+	"github.com/ddosakura/pdf-designer/watcher"
 	"github.com/spf13/afero"
 	"github.com/spf13/cobra"
+	"golang.org/x/net/websocket"
 )
 
 var (
@@ -38,6 +40,9 @@ var (
 
 			wp := http.FileServer(http.Dir(workSrc))
 			http.Handle("/wp/", http.StripPrefix("/wp/", wp))
+
+			go watcher.Init(workSrc)
+			http.Handle("/fresh", websocket.Handler(watcher.WsFreshHandler))
 
 			http.HandleFunc("/", preview)
 
