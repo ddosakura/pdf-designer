@@ -45,3 +45,4 @@ Find the templates:
 + [ ] replace [sblock](https://github.com/ddosakura/sblock) with release version and [aferox](https://github.com/ddosakura/aferox)
 + [ ] auto load iconfont
 + [ ] relative path support in templates
++ [ ] ignore *.txt in saving

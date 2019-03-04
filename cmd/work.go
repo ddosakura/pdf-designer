@@ -122,10 +122,11 @@ func readFromWp(name string) string {
 }
 
 var (
-	jsSuffix   = regexp.MustCompile(`.js$`)
-	cssSuffix  = regexp.MustCompile(`.css$`)
-	htmlSuffix = regexp.MustCompile(`.html$`)
-	dataSuffix = regexp.MustCompile(`.txt$`)
+	jsSuffix          = regexp.MustCompile(`.js$`)
+	cssSuffix         = regexp.MustCompile(`.css$`)
+	htmlSuffix        = regexp.MustCompile(`.html$`)
+	dataSuffix        = regexp.MustCompile(`.txt$`)
+	defaultDataSuffix = regexp.MustCompile(`.default.txt$`)
 )
 
 const (

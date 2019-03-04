@@ -44,6 +44,8 @@ func pkg() string {
 
 	rand := MD5(saveSrc) + ".tar.gz"
 	list, err := filepath.Glob(saveSrc + "/*")
+	// list = listcheckDefault(list)
+	// gklang.Log(gklang.LDebug, list)
 	if err != nil {
 		gklang.Er(err)
 	}
@@ -53,6 +55,34 @@ func pkg() string {
 	}
 	return rand
 }
+
+/*
+func listcheckDefault(list []string) []string {
+	l := make([]string, 0)
+	m := make(map[string]bool)
+	for _, item := range list {
+		d := dataSuffix.MatchString(item)
+		dd := defaultDataSuffix.MatchString(item)
+		if d {
+			if dd {
+				k := defaultDataSuffix.ReplaceAllString(item, ".txt")
+				m[k] = false
+				l = append(l, item)
+			} else {
+				m[item] = true
+			}
+		} else {
+			l = append(l, item)
+		}
+	}
+	for k, v := range m {
+		if v {
+			l = append(l, k)
+		}
+	}
+	return l
+}
+*/
 
 // MD5 util
 func MD5(i string) string {
