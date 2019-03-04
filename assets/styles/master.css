@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+.highlight {
+    background: #000;
+}
+
+.a4 {
+    padding: 8px;
+    width: 794px;
+    margin: auto;
+    background: #fff;
+}
+
+#split-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.hide {
+    display: none;
+}
+
+#split-lines hr {
+    margin-top: 1130px;
+    margin-bottom: 0;
+    /* 1123px; */
+    border: 1px red solid;
+}
