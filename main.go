@@ -1,5 +1,5 @@
 //go:generate sblocker -s ./assets -f
-//go:generate go fmt statik/statik.go
+//go:generate go fmt sblock/raw.go
 //go:generate rm -rf ./example
 
 package main

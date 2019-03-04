@@ -44,3 +44,4 @@ Find the templates:
 + ~~[ ] Replace statik with [sblock](https://github.com/ddosakura/sblock), after sblock had its first stable version~~ **Because statik has a bug that is difficult to handle when reading subdirectories, it uses sblock directly.**
 + [ ] replace [sblock](https://github.com/ddosakura/sblock) with release version and [aferox](https://github.com/ddosakura/aferox)
 + [ ] auto load iconfont
++ [ ] relative path support in templates
