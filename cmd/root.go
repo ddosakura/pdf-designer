@@ -46,4 +46,5 @@ func init() {
 	rootCmd.AddCommand(initCmd)
 	rootCmd.AddCommand(saveCmd)
 	rootCmd.AddCommand(workCmd)
+	rootCmd.AddCommand(pkgCmd)
 }

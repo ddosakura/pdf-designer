@@ -10,6 +10,10 @@ save-buildin:
 save:
 	go run . save -s ./wp -p ./local -t origin-wp
 
+.PHONY: pkg
+pkg:
+	go run . pkg -s ./wp -p ./local
+
 .PHONY: init
 init:
 	go run . init -s ./wp -t ./local/origin-wp.pdt

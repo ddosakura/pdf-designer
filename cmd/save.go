@@ -19,7 +19,7 @@ var (
 		Short: "Save a template file from project",
 		Long:  `Save a template file from project.`,
 		Run: func(cmd *cobra.Command, args []string) {
-			tmp := pkg()
+			tmp := pkgS()
 			rename(tmp, savePath, saveTemplate+".pdt")
 		},
 	}
@@ -35,7 +35,7 @@ func init() {
 	saveCmd.PersistentFlags().StringVarP(&saveSrc, "src", "s", "./src", "the path to project")
 }
 
-func pkg() string {
+func pkgS() string {
 	tg := archiver.NewTarGz()
 	tg.CompressionLevel = flate.BestCompression
 	tg.OverwriteExisting = true

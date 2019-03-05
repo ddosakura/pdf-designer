@@ -46,3 +46,5 @@ Find the templates:
 + [ ] auto load iconfont
 + [ ] relative path support in templates
 + [ ] ignore *.txt in saving
++ [ ] change the size of page (not only A4)
++ [ ] pdf-designer-ui project
