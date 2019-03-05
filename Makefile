@@ -2,6 +2,10 @@
 build:
 	go build -o ./build/pdf-designer
 
+.PHONY: xbuild
+xbuild:
+	./build.sh
+
 .PHONY: save-buildin
 save-buildin:
 	go run . save -s ./assets/template/origin -p ./local -t origin
