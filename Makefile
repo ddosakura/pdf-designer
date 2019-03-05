@@ -10,6 +10,10 @@ save-buildin:
 save:
 	go run . save -s ./wp -p ./local -t origin-wp
 
+.PHONY: savet
+savet:
+	go run . save -s ./a-demo-template -p ./local -t ddosakura-template
+
 .PHONY: pkg
 pkg:
 	go run . pkg -s ./wp -p ./local
@@ -25,3 +29,11 @@ init-buildin:
 .PHONY: work
 work:
 	go run . work -s ./wp
+
+.PHONY: workt
+workt:
+	go run . work -s ./a-demo-template
+
+.PHONY: initt
+initt:
+	go run . init -s ./a-demo-template -t ./local/ddosakura-template.pdt
