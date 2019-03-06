@@ -61,7 +61,12 @@ func init() {
 	workCmd.PersistentFlags().StringArrayVarP(
 		&workIconFont,
 		"iconfont", "i",
-		[]string{"//at.alicdn.com/t/font_986998_hp53ygl5enp.js"},
+		[]string{
+			// dswa-ui
+			"//at.alicdn.com/t/font_986998_hp53ygl5enp.js",
+			// pdf-designer
+			"//at.alicdn.com/t/font_1074670_vze2eocchyi.js",
+		},
 		"the url of iconfont")
 }
 

@@ -44,7 +44,7 @@ Find the templates:
 + ~~[ ] Replace statik with [sblock](https://github.com/ddosakura/sblock), after sblock had its first stable version~~ **Because statik has a bug that is difficult to handle when reading subdirectories, it uses sblock directly.**
 + [ ] replace [sblock](https://github.com/ddosakura/sblock) with release version and [aferox](https://github.com/ddosakura/aferox)
 + [x] auto load iconfont
-+ [ ] Create a dedicated iconfont project
++ [x] Create a dedicated iconfont project
 + [ ] relative path support in templates
 + [ ] ignore *.txt in saving
 + [ ] change the size of page (not only A4)
