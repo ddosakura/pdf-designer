@@ -50,13 +50,19 @@ var (
 		},
 	}
 
-	workPort int
-	workSrc  string
+	workPort     int
+	workSrc      string
+	workIconFont []string
 )
 
 func init() {
 	workCmd.PersistentFlags().IntVarP(&workPort, "port", "p", 8080, "port for preview page")
 	workCmd.PersistentFlags().StringVarP(&workSrc, "src", "s", "./src", "the work directory")
+	workCmd.PersistentFlags().StringArrayVarP(
+		&workIconFont,
+		"iconfont", "i",
+		[]string{"//at.alicdn.com/t/font_986998_hp53ygl5enp.js"},
+		"the url of iconfont")
 }
 
 var openCommands = map[string]string{
@@ -73,7 +79,16 @@ func preview(rw http.ResponseWriter, r *http.Request) {
 
 func getHTML() string {
 	d := readFromBlock("/index.html")
+	d = strings.ReplaceAll(d, "<!-- iconfont -->", getIconFont())
 	return loadTemplate(d)
+}
+
+func getIconFont() string {
+	d := ""
+	for _, item := range workIconFont {
+		d += fmt.Sprintf("<script src='%s' data-namespace='%s'></script>", item, item)
+	}
+	return d
 }
 
 func readFromBlock(name string) string {
